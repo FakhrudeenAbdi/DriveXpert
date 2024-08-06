@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Service Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .hero-section {
+            background-color: #4f55c7;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-section .btn-primary {
+            padding: 10px 30px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+        }
+
+        .features-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .features-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .features-section .feature {
+            margin-bottom: 30px;
+        }
+
+        .features-section .feature img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .features-section .feature h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-section {
+            background-color: #f4f4f4;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section .btn-primary {
+            padding: 10px 30px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+        }
+
+        .footer-section {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-section p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'vehicle/navbar.html' %}
+
+    <div class="hero-section">
+        <h1>Optimize Your Vehicle Service </h1>
+        <p>Track, manage, and maintain all your vehicles with ease.</p>
+        <a href="/customersignup" class="btn btn-primary">Get Started</a>
+    </div>
+
+    <div class="features-section container">
+        <h2>Why Choose Us?</h2>
+        <div class="row">
+            <div class="col-md-4 feature">
+                <img src="{% static 'images/feature1.png' %}" alt="Feature 1">
+                <h4>Comprehensive Tracking</h4>
+                <p>Monitor your vehicles' status, maintenance schedules, and more.</p>
+            </div>
+            <div class="col-md-4 feature">
+                <img src="{% static 'images/feature2.png' %}" alt="Feature 2">
+                <h4>Real-time Updates</h4>
+                <p>Stay informed with real-time alerts and notifications.</p>
+            </div>
+            <div class="col-md-4 feature">
+                <img src="{% static 'images/feature3.png' %}" alt="Feature 3">
+                <h4>User-friendly Interface</h4>
+                <p>Navigate with ease using our intuitive dashboard.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2>Ready to Simplify Your Fleet Management?</h2>
+        <a href="/customersignup" class="btn btn-primary">Start Your Free Trial</a>
+    </div>
+
+
+
+     <!-- Hero Section -->
+     <div class="hero-section">
+        <h1>Welcome to  DriveXpert Vehicle Management System</h1>
+        <p>Efficiently manage and maintain your vehicles with our comprehensive solutions.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'customersignup' %}" role="button">Create Your Account</a>
+        <a class="btn btn-secondary btn-lg" href="{% url 'customerlogin' %}" role="button">Login</a>
+    </div>
+
+    <!-- Features Section -->
+    <div class="container features-section">
+        <div class="row">
+            <div class="col-md-4 feature-item">
+                <img src="{% static 'images/car-service.jpg' %}" alt="Car Service">
+                <h3>Comprehensive Car Services</h3>
+                <p>Top-notch maintenance and repair services for your car, ensuring optimal performance and safety.</p>
+            </div>
+            <div class="col-md-4 feature-item">
+                <img src="{% static 'images/motorcycle-repair.jpg' %}" alt="Motorcycle Repair">
+                <h3>Expert Motorcycle Repair</h3>
+                <p>Professional repair and servicing for all types of motorcycles, from daily commuters to high-performance bikes.</p>
+            </div>
+            <div class="col-md-4 feature-item">
+                <img src="{% static 'images/truck-maintenance.jpg' %}" alt="Truck Maintenance">
+                <h3>Reliable Truck Maintenance</h3>
+                <p>Efficient maintenance solutions for commercial trucks, keeping your fleet running smoothly.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Partners Section -->
+    <div class="container partners-section">
+        <h2>Our Trusted Partners</h2>
+        <div class="text-center">
+            <img src="{% static 'images/ferrari.png' %}" alt="Ferrari">
+            <img src="{% static 'images/ford.png' %}" alt="Ford">
+            <img src="{% static 'images/lambo.png' %}" alt="Lamborghini">
+            <img src="{% static 'images/mahindra.png' %}" alt="Mahindra">
+            <img src="{% static 'images/tvs.png' %}" alt="TVS">
+            <img src="{% static 'images/tata.png' %}" alt="Tata">
+            <img src="{% static 'images/rolls.png' %}" alt="Rolls Royce">
+            <img src="{% static 'images/suzuki.png' %}" alt="Suzuki">
+        </div>
+    </div>
+    {% include 'vehicle/footer.html' %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

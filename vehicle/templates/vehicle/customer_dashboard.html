@@ -1,0 +1,87 @@
+{% extends 'vehicle/customerbase.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Main Content -->
+<div class="container mt-5">
+
+    <!-- Cards Start -->
+    <div class="row text-center mb-5">
+        <div class="col-12 col-md-6 col-lg-3 mb-4">
+            <div class="counter bg-light text-dark p-4 rounded shadow-sm">
+                <div class="icon-container mb-3">
+                    <i class="fas fa-tasks fa-3x"></i>
+                </div>
+                <h3 class="fw-bold mb-2">{{new_request_made}}</h3>
+                <p class="mb-0">New Request Made</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 mb-4">
+            <div class="counter bg-light text-dark p-4 rounded shadow-sm">
+                <div class="icon-container mb-3">
+                    <i class="fas fa-spinner fa-3x"></i>
+                </div>
+                <h3 class="fw-bold mb-2">{{work_in_progress}}</h3>
+                <p class="mb-0">Vehicle Repair In Progress</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 mb-4">
+            <div class="counter bg-light text-dark p-4 rounded shadow-sm">
+                <div class="icon-container mb-3">
+                    <i class="fas fa-check-circle fa-3x"></i>
+                </div>
+                <h3 class="fw-bold mb-2">{{work_completed}}</h3>
+                <p class="mb-0">Vehicle Repaired</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 mb-4">
+            <div class="counter bg-light text-dark p-4 rounded shadow-sm">
+                <div class="icon-container mb-3">
+                    <i class="fas fa-rupee-sign fa-3x"></i>
+                </div>
+                <h3 class="fw-bold mb-2">{{bill}}</h3>
+                <p class="mb-0">Total Bill</p>
+            </div>
+        </div>
+    </div>
+    <!-- Cards End -->
+
+    <!-- Partners Carousel -->
+    <div id="partnersCarousel" class="carousel slide mb-5">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-around align-items-center">
+                    <img src="{% static 'images/ferrari.png' %}" class="d-block mx-2" width="120" height="80" alt="Ferrari">
+                    <img src="{% static 'images/ford.png' %}" class="d-block mx-2" width="120" height="80" alt="Ford">
+                    <img src="{% static 'images/lambo.png' %}" class="d-block mx-2" width="120" height="80" alt="Lamborghini">
+                    <img src="{% static 'images/mahindra.png' %}" class="d-block mx-2" width="120" height="80" alt="Mahindra">
+                    <img src="{% static 'images/tvs.png' %}" class="d-block mx-2" width="120" height="80" alt="TVS">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-around align-items-center">
+                    <img src="{% static 'images/tata.png' %}" class="d-block mx-2" width="120" height="80" alt="Tata">
+                    <img src="{% static 'images/hero.png' %}" class="d-block mx-2" width="120" height="80" alt="Hero">
+                    <img src="{% static 'images/rolls.png' %}" class="d-block mx-2" width="120" height="80" alt="Rolls Royce">
+                    <img src="{% static 'images/suzuki.png' %}" class="d-block mx-2" width="120" height="80" alt="Suzuki">
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#partnersCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#partnersCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+</div>
+<!-- End Main Content -->
+
+{% endblock content %}
+
+<!-- Bootstrap 5 JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>

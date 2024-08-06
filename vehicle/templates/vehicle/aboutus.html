@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% load static bootstrap4 %}
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>About Us</title>
+
+    <!-- Use bootstrap_css tag to include Bootstrap CSS -->
+    {% bootstrap_css %}
+
+    <style>
+        .jumbotron {
+            background-color: #4f55c7;
+            color: white;
+            margin-top: 20px;
+            padding: 30px 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .jumbotron h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .jumbotron p.lead {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            padding: 60px 20px;
+        }
+
+        .content-section h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #4f55c7;
+            text-align: center;
+        }
+
+        .content-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .content-section .btn-primary {
+            background-color: #4f55c7;
+            border: none;
+        }
+
+        .content-section .btn-primary:hover {
+            background-color: #3a40a1;
+        }
+
+        .brands-section {
+            padding: 40px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .brands-section img {
+            margin: 0 15px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+
+    {% include "vehicle/navbar.html" %}
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Vehicle Service Management</h1>
+        <p class="lead">Your one-stop solution for all vehicle management needs.</p>
+        <hr class="my-4">
+        <p>We are dedicated to providing top-notch services to keep your vehicles in perfect condition.</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="/" role="button">Get Started</a>
+        </p>
+    </div>
+
+    <div class="content-section container">
+        <h2>Our Mission</h2>
+        <p>At Vehicle Service Management, our mission is to offer unparalleled vehicle maintenance and management services. We
+            aim to provide a seamless experience for our customers, ensuring their vehicles are always running at their best.
+            Our dedicated team of professionals works tirelessly to deliver top-quality services that meet the unique needs of
+            each client.</p>
+        <h2>Why Choose Us?</h2>
+        <p>We understand that your vehicle is an essential part of your life, and that's why we go the extra mile to ensure
+            its longevity and performance. Our state-of-the-art facility is equipped with the latest technology and staffed
+            by experienced technicians who are passionate about what they do. Whether you need routine maintenance or
+            emergency repairs, you can trust us to get the job done right.</p>
+    </div>
+
+    <div class="brands-section">
+        <marquee behavior="scroll" direction="left">
+            <img src="{% static 'images/ferrari.png' %}" width="120" height="80" alt="ferrari" />
+            <img src="{% static 'images/ford.png' %}" width="120" height="80" alt="ford" />
+            <img src="{% static 'images/lambo.png' %}" width="120" height="80" alt="lambo" />
+            <img src="{% static 'images/mahindra.png' %}" width="120" height="80" alt="mahindra" />
+            <img src="{% static 'images/tvs.png' %}" width="120" height="80" alt="tvs" />
+            <img src="{% static 'images/tata.png' %}" width="120" height="80" alt="tata" />
+            <img src="{% static 'images/rolls.png' %}" width="120" height="80" alt="rolls" />
+            <img src="{% static 'images/suzuki.png' %}" width="120" height="80" alt="suzuki" />
+        </marquee>
+    </div>
+
+    {% include "vehicle/footer.html" %}
+
+    <!-- Use bootstrap_javascript tag to include Bootstrap JS and its dependencies -->
+    {% bootstrap_javascript jquery='full' %}
+
+</body>
+
+</html>
