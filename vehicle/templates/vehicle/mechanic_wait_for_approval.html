@@ -1,37 +1,103 @@
 <!DOCTYPE html>
 {% load widget_tweaks %}
 
+<head>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
 
-  <style media="screen">
     .jumbotron {
-      margin-top: 0px;
-      margin-bottom: 0px;
+      background: linear-gradient(to right, #4e54c8, #8f94fb);
+      color: white;
+      padding: 50px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin: 40px auto;
+      width: 80%;
     }
 
     .jumbotron h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      font-weight: bold;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .jumbotron p.lead {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .jumbotron hr.my-4 {
+      border-top: 2px solid #fff;
+      width: 60%;
+      margin: 20px auto;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .jumbotron .btn {
+      background-color: #ff6b6b;
+      color: white;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border-radius: 50px;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .jumbotron .btn:hover {
+      background-color: #ff4c4c;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
       text-align: center;
+      margin-top: 40px;
     }
 
-    .alert {
-      margin: 0px;
+    .footer p {
+      margin: 0;
+      font-size: 1rem;
     }
+
   </style>
-  <body>
-    {% include "vehicle/navbar.html" %}
+</head>
 
-      <div class="jumbotron" style="margin-top: 0px;
-        margin-bottom: 0px;">
-        <h1 class="display-4">Hello {{request.user.first_name}}</h1>
-        <p class="lead">Your Account is not approved till now <br><br>Our Team is checking your profile <br><br> Soon you will be hired to our Agency</p>
-        <hr class="my-4">
-        <p class="lead">
-          <form action="{% url 'logout' %}" method="post" style="display: inline;">
-              {% csrf_token %}
-              <button type="submit" class="btn  btn primary btn-lg">Logout For Now</button>
-          </form>
-      </p>
-      </div>
+<body>
+  {% include "vehicle/navbar.html" %}
 
-{% include "vehicle/footer.html" %}
-  </body>
+  <div class="jumbotron">
+    <h1 class="display-4">Hello, {{ request.user.first_name }}!</h1>
+    <p class="lead">Your account is not yet approved. Our team is currently reviewing your profile, and you'll be notified once you're approved. Thank you for your patience!</p>
+    <hr class="my-4">
+    <p class="lead">
+      <form action="{% url 'logout' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary btn-lg">Logout For Now</button>
+      </form>
+    </p>
+  </div>
+
+  {% include "vehicle/footer.html" %}
+</body>
 </html>

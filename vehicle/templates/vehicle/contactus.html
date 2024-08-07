@@ -4,43 +4,115 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Feedback</title>
 
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f7f9;
+      color: #333;
+    }
 
+    .content-wrapper {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
+    .content-wrapper h3 {
+      color: #4f55c7;
+      margin-bottom: 20px;
+    }
 
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group h3 {
+      font-size: 1.2rem;
+      font-weight: normal;
+    }
+
+    .form-group input[type="submit"] {
+      background-color: #4f55c7;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-group input[type="submit"]:hover {
+      background-color: #3a40a1;
+    }
+
+    .brands-section {
+      padding: 20px 0;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .brands-section img {
+      margin: 0 15px;
+      vertical-align: middle;
+      transition: transform 0.3s ease;
+    }
+
+    .brands-section img:hover {
+      transform: scale(1.1);
+    }
+
+    .footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .footer p {
+      margin: 0;
+      font-size: 1rem;
+    }
+  </style>
 </head>
 
 <body>
 
   {% include "vehicle/navbar.html" %}
-  <br><br>
-
-  <center>
-    <h3 class='alert alert-success'>Send Us Your Valuable Feedback !</h3>
+  <div class="content-wrapper">
+    <h3 class="alert alert-success text-center">Send Us Your Valuable Feedback!</h3>
 
     <form method="POST">
-      <!-- Very Important csrf Token -->
       {% csrf_token %}
       <div class="form-group">
-        <p>
         <h3>{{ form.as_p }}</h3>
-        </p>
-        <br>
-        <input type="submit" value="Send Message" class='btn btn-primary btn-lg'>
+      </div>
+      <div class="form-group text-center">
+        <input type="submit" value="Send Message" class="btn btn-primary btn-lg">
       </div>
     </form>
-  </center>
-  <marquee behavior="scroll" direction="left">
-   <img src="{% static "images/ferrari.png" %}" width="120" height="80" alt="ferrari" />
-    <img src="{% static "images/ford.png" %}" width="120" height="80" alt="ford" />
-   <img src="{% static "images/lambo.png" %}" width="120" height="80" alt="lambo" />
-   <img src="{% static "images/mahindra.png" %}" width="120" height="80" alt="mahindra" />
-   <img src="{% static "images/tvs.png" %}" width="120" height="80" alt="tvs" />
-   <img src="{% static "images/tata.png" %}" width="120" height="80" alt="tata" />
-   <img src="{% static "images/hero.png" %}" width="120" height="80" alt="hero" />
-   <img src="{% static "images/rolls.png" %}" width="120" height="80" alt="rolls" />
-   <img src="{% static "images/suzuki.png" %}" width="120" height="80" alt="suzuki" />
- </marquee>
+  </div>
+
+  <div class="brands-section">
+    <marquee behavior="scroll" direction="left">
+      <img src="{% static 'images/ferrari.png' %}" width="120" height="80" alt="ferrari" />
+      <img src="{% static 'images/ford.png' %}" width="120" height="80" alt="ford" />
+      <img src="{% static 'images/lambo.png' %}" width="120" height="80" alt="lambo" />
+      <img src="{% static 'images/mahindra.png' %}" width="120" height="80" alt="mahindra" />
+      <img src="{% static 'images/tvs.png' %}" width="120" height="80" alt="tvs" />
+      <img src="{% static 'images/tata.png' %}" width="120" height="80" alt="tata" />
+      <img src="{% static 'images/hero.png' %}" width="120" height="80" alt="hero" />
+      <img src="{% static 'images/rolls.png' %}" width="120" height="80" alt="rolls" />
+      <img src="{% static 'images/suzuki.png' %}" width="120" height="80" alt="suzuki" />
+    </marquee>
+  </div>
+
   {% include "vehicle/footer.html" %}
 </body>
 

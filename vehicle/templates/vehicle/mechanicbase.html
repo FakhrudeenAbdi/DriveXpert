@@ -18,84 +18,73 @@
 <body class="overlay-scrollbar">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/mechanic-dashboard">Vehicle Service Management</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="collapseSidebar()">
-                        <i class="fas fa-bars"></i>
-                    </a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="What are you looking for?" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="switchTheme()">
-                        <i class="fas fa-moon dark-icon"></i>
-                        <i class="fas fa-sun light-icon"></i>
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-											<img src="{% static 'mechanic.profile_pic.url' %}" alt="User image" class="rounded-circle" width="30" height="30">
-									</a>
-									<div class="dropdown-menu" aria-labelledby="userMenu">
-											<a class="dropdown-item" href="/mechanic-profile">
-													<i class="fas fa-user-tie"></i> Profile
-											</a>
-											<a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-													<i class="fas fa-sign-out-alt"></i> Logout
-											</a>
-											<form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
-													{% csrf_token %}
-											</form>
-									</div>
-							</li>
-            </ul>
-        </div>
-    </nav>
-    <!-- End Navbar -->
-
-    <!-- Sidebar -->
-    <div class="sidebar bg-light">
-        <ul class="nav flex-column">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0b4584;">
+    <a class="navbar-brand" href="/mechanic-dashboard">Vehicle Service Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/mechanic-dashboard">
-                    <i class="fas fa-tachometer-alt"></i> Dashboard
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/mechanic-work-assigned">
-                    <i class="fas fa-spinner"></i> Work Assigned
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/mechanic-salary">
-                    <i class="fas fa-rupee-sign"></i> Salary
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/mechanic-attendance">
-                    <i class="fas fa-calendar-week"></i> Attendance
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/mechanic-feedback">
-                    <i class="fas fa-comments"></i> Feedback
+                <a class="nav-link" href="#" onclick="collapseSidebar()">
+                    <i class="fas fa-bars"></i>
                 </a>
             </li>
         </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2 navbar-search-input" type="search" placeholder="What are you looking for?" aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="switchTheme()">
+                    <i class="fas fa-moon dark-icon"></i>
+                    <i class="fas fa-sun light-icon"></i>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="{% static 'mechanic.profile_pic.url' %}" alt="User image" class="rounded-circle" width="30" height="30">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="userMenu">
+                    <a class="dropdown-item" href="/mechanic-profile">
+                        <i class="fas fa-user-tie"></i> Profile
+                    </a>
+                    <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                    <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
+                        {% csrf_token %}
+                    </form>
+                </div>
+            </li>
+        </ul>
     </div>
-    <!-- End Sidebar -->
+</nav>
+<!-- End Navbar -->
+
+<!-- Horizontal Links -->
+<div class="horizontal-links" style="display: flex; justify-content: center; background-color: #ffffff; padding: 1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    <a href="/mechanic-dashboard" style="color: #0b4584; font-weight: 500; text-decoration: none; margin: 0 15px;">
+        <i class="fas fa-tachometer-alt"></i> Dashboard
+    </a>
+    <a href="/mechanic-work-assigned" style="color: #0b4584; font-weight: 500; text-decoration: none; margin: 0 15px;">
+        <i class="fas fa-spinner"></i> Work Assigned
+    </a>
+    <a href="/mechanic-salary" style="color: #0b4584; font-weight: 500; text-decoration: none; margin: 0 15px;">
+        <i class="fas fa-rupee-sign"></i> Salary
+    </a>
+    <a href="/mechanic-attendance" style="color: #0b4584; font-weight: 500; text-decoration: none; margin: 0 15px;">
+        <i class="fas fa-calendar-week"></i> Attendance
+    </a>
+    <a href="/mechanic-feedback" style="color: #0b4584; font-weight: 500; text-decoration: none; margin: 0 15px;">
+        <i class="fas fa-comments"></i> Feedback
+    </a>
+</div>
+<!-- End Horizontal Links -->
+
 
     <!-- Content -->
     <div class="content">

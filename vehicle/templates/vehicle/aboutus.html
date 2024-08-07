@@ -7,28 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>About Us</title>
 
-    <!-- Use bootstrap_css tag to include Bootstrap CSS -->
     {% bootstrap_css %}
 
     <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f9fc;
+            color: #333;
+        }
+
         .jumbotron {
-            background-color: #4f55c7;
+            background: linear-gradient(135deg, #4f55c7, #6b73ff);
             color: white;
             margin-top: 20px;
-            padding: 30px 20px;
-            border-radius: 10px;
+            padding: 40px 30px;
+            border-radius: 12px;
             text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
         }
 
         .jumbotron h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
             font-weight: bold;
+            margin-bottom: 25px;
         }
 
         .jumbotron p.lead {
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
         }
 
         .content-section {
@@ -36,15 +42,15 @@
         }
 
         .content-section h2 {
-            font-size: 28px;
+            font-size: 2.2rem;
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #4f55c7;
             text-align: center;
         }
 
         .content-section p {
-            font-size: 16px;
+            font-size: 1rem;
             line-height: 1.8;
             margin-bottom: 30px;
             text-align: justify;
@@ -53,6 +59,7 @@
         .content-section .btn-primary {
             background-color: #4f55c7;
             border: none;
+            transition: background-color 0.3s ease;
         }
 
         .content-section .btn-primary:hover {
@@ -61,13 +68,32 @@
 
         .brands-section {
             padding: 40px 0;
-            background-color: #f8f9fa;
+            background-color: #eef2f7;
             text-align: center;
+            border-top: 1px solid #ddd;
         }
 
         .brands-section img {
-            margin: 0 15px;
+            margin: 0 20px;
             vertical-align: middle;
+            transition: transform 0.3s ease;
+        }
+
+        .brands-section img:hover {
+            transform: scale(1.1);
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
         }
     </style>
 </head>
@@ -78,7 +104,7 @@
     <div class="jumbotron">
         <h1 class="display-4">Welcome to Vehicle Service Management</h1>
         <p class="lead">Your one-stop solution for all vehicle management needs.</p>
-        <hr class="my-4">
+        <hr class="my-4" style="border-top: 1px solid #fff;">
         <p>We are dedicated to providing top-notch services to keep your vehicles in perfect condition.</p>
         <p class="lead">
             <a class="btn btn-primary btn-lg" href="/" role="button">Get Started</a>
@@ -113,7 +139,6 @@
 
     {% include "vehicle/footer.html" %}
 
-    <!-- Use bootstrap_javascript tag to include Bootstrap JS and its dependencies -->
     {% bootstrap_javascript jquery='full' %}
 
 </body>

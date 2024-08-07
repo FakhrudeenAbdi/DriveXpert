@@ -6,14 +6,83 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <style media="screen">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #e9ecef;
+      margin: 0;
+      padding: 0;
+    }
+
     .jumbotron {
-      margin-top: 0px;
-      margin-bottom: 0px;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      padding: 50px 25px;
+      border-radius: 8px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      margin: 50px auto;
+      width: 80%;
     }
 
     .jumbotron h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      animation: bounceIn 1s ease;
+    }
+
+    .jumbotron p.lead {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      animation: bounceIn 1.5s ease;
+    }
+
+    .jumbotron hr.my-4 {
+      border-top: 2px solid #fff;
+      width: 70%;
+      margin: 20px auto;
+      animation: bounceIn 2s ease;
+    }
+
+    .jumbotron .btn {
+      background-color: #ff4e50;
+      color: white;
+      font-size: 1.2rem;
+      padding: 12px 28px;
+      border-radius: 30px;
+      border: none;
+      margin: 5px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .jumbotron .btn:hover {
+      background-color: #d13942;
+      transform: translateY(-2px);
+    }
+
+    @keyframes bounceIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 20px;
       text-align: center;
+      margin-top: 50px;
+    }
+
+    .footer p {
+      margin: 0;
+      font-size: 1rem;
     }
 
   </style>
@@ -24,18 +93,19 @@
 
   {% include "vehicle/navbar.html" %}
   <br><br>
-  <div class="jumbotron" style="margin-bottom:0px;">
-    <h1 class="display-4">Hello</h1>
+  <div class="jumbotron">
+    <h1 class="display-4">Hello!</h1>
     <p class="lead">Welcome to Vehicle Service Management</p>
     <hr class="my-4">
-    <p>You can access various features after Login.</p>
+    <p>You can access various features after logging in.</p>
     <p class="lead">
       <a class="btn btn-primary btn-lg" href="{% url 'customersignup' %}" role="button">Create Your Account</a>
-<a class="btn btn-primary btn-lg" href="{% url 'customerlogin' %}" role="button">Login</a>
-
+      <a class="btn btn-primary btn-lg" href="{% url 'customerlogin' %}" role="button">Login</a>
     </p>
   </div>
+
   {% include "vehicle/footer.html" %}
+
 </body>
 
 </html>

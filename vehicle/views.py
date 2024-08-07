@@ -7,6 +7,8 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required,user_passes_test
 from django.conf import settings
 from django.db.models import Q
+from django.contrib.auth.models import Group
+from . import forms  # Ensure you import your forms
 
 def home_view(request):
     if request.user.is_authenticated:
@@ -50,28 +52,42 @@ def customer_signup_view(request):
             customer.save()
             my_customer_group = Group.objects.get_or_create(name='CUSTOMER')
             my_customer_group[0].user_set.add(user)
-        return HttpResponseRedirect('customerlogin')
+        return HttpResponseRedirect('/customerlogin')
     return render(request,'vehicle/customersignup.html',context=mydict)
 
 
+# vehicleservicemanagement/views.py
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import Group
+from . import forms  # Adjust based on your forms module
+
 def mechanic_signup_view(request):
-    userForm=forms.MechanicUserForm()
-    mechanicForm=forms.MechanicForm()
-    mydict={'userForm':userForm,'mechanicForm':mechanicForm}
-    if request.method=='POST':
-        userForm=forms.MechanicUserForm(request.POST)
-        mechanicForm=forms.MechanicForm(request.POST,request.FILES)
+    userForm = forms.MechanicUserForm()
+    mechanicForm = forms.MechanicForm()
+    mydict = {'userForm': userForm, 'mechanicForm': mechanicForm}
+    
+    if request.method == 'POST':
+        userForm = forms.MechanicUserForm(request.POST)
+        mechanicForm = forms.MechanicForm(request.POST, request.FILES)
+        
         if userForm.is_valid() and mechanicForm.is_valid():
-            user=userForm.save()
-            user.set_password(user.password)
+            user = userForm.save()
+            user.set_password(user.password)  # Ensure the password is hashed
             user.save()
-            mechanic=mechanicForm.save(commit=False)
-            mechanic.user=user
+            mechanic = mechanicForm.save(commit=False)
+            mechanic.user = user
             mechanic.save()
-            my_mechanic_group = Group.objects.get_or_create(name='MECHANIC')
-            my_mechanic_group[0].user_set.add(user)
-        return HttpResponseRedirect('mechaniclogin')
-    return render(request,'vehicle/mechanicsignup.html',context=mydict)
+            my_mechanic_group, created = Group.objects.get_or_create(name='MECHANIC')
+            my_mechanic_group.user_set.add(user)
+            
+            # Redirect to the mechanic wait for approval page
+            return redirect('/mechanic_wait_for_approval')  # Use redirect for better practice
+
+    return render(request, 'vehicle/mechanicsignup.html', context=mydict)
+
+def mechanic_wait_for_approval_view(request):
+    return render(request, 'vehicle/mechanic_wait_for_approval.html')
 
 
 #for checking user customer, mechanic or admin(by sumit)
@@ -560,7 +576,7 @@ def customer_add_request_view(request):
             enquiry_x.save()
         else:
             print("form is invalid")
-        return HttpResponseRedirect('/customer-view-request/')
+        return HttpResponseRedirect('/customer-view-request')
     return render(request,'vehicle/customer_add_request.html',{'enquiry':enquiry,'customer':customer})
 
 

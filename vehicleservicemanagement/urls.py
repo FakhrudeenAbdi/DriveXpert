@@ -41,7 +41,7 @@ urlpatterns = [
 
     path('customersignup/', views.customer_signup_view, name='customersignup'),
     path('mechanicsignup/', views.mechanic_signup_view, name='mechanicsignup'),
-
+    path('mechanic_wait_for_approval/', views.mechanic_wait_for_approval_view, name='mechanic_wait_for_approval'), 
     path('customerlogin/', LoginView.as_view(template_name='vehicle/customerlogin.html'), name='customerlogin'),
     path('mechaniclogin/', LoginView.as_view(template_name='vehicle/mechaniclogin.html'), name='mechaniclogin'),
     path('adminlogin/', LoginView.as_view(template_name='vehicle/adminlogin.html'), name='adminlogin'),
